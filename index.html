@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="search.html">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
@@ -24,6 +25,14 @@
 </head>
 
 <body>
+    accept</button>
+    <button data-modal-hide="default-modal" type="button"
+        class="text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Decline</button>
+    </div>
+    </div>
+    </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -34,9 +43,13 @@
                 <li><a href="#">New Arrivals</a></li>
                 <li><a href="#">Brands</a></li>
             </ul>
+
+
+            <!-- search bar -->
             <div class="search-bar">
+                <label for="search-input"></label>
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search for products...">
+                <input type="text" id="search-input" name="query" placeholder="Search for products...">
             </div>
             <div class="nav-icons">
                 <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -46,32 +59,27 @@
     </nav>
 
     <!-- Carousel -->
-    <div id="default-carousel" class="relative w-full h-[calc(90vh-80px)]" data-carousel="slide">
+    <div id="default-carousel" class="relative w-full h-[calc(96vh-80px)]" data-carousel="slide">
         <div class="relative h-full w-full overflow-hidden">
             <!-- Slide 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://placehold.co/1200x600/000000/FFFFFF?text=Slide+1"
-                    class="absolute block w-full h-full object-cover" alt="Slide 1">
+                <img src="assets\1.jpg" class="absolute block w-full h-full object-cover" alt="Slide 1">
             </div>
-            <!-- Slide 2 -->
+            <!-- Sli£de 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://placehold.co/1200x600/F0EEED/000000?text=Slide+2"
-                    class="absolute block w-full h-full object-cover" alt="Slide 2">
+                <img src="assets\2.jpg" class="absolute block w-full h-full object-cover" alt="Slide 2">
             </div>
             <!-- Slide 3 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://placehold.co/1200x600/000000/FFFFFF?text=Slide+3"
-                    class="absolute block w-full h-full object-cover" alt="Slide 3">
+                <img src="assets\3.jpg" class="absolute block w-full h-full object-cover" alt="Slide 3">
             </div>
             <!-- Slide 4 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://placehold.co/1200x600/F0EEED/000000?text=Slide+4"
-                    class="absolute block w-full h-full object-cover" alt="Slide 4">
+                <img src="assets\1.jpg" class="absolute block w-full h-full object-cover" alt="Slide 4">
             </div>
             <!-- Slide 5 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://placehold.co/1200x600/000000/FFFFFF?text=Slide+5"
-                    class="absolute block w-full h-full object-cover" alt="Slide 5">
+                <img src="assets\2.jpg" class="absolute block w-full h-full object-cover" alt="Slide 5">
             </div>
         </div>
 
@@ -118,201 +126,48 @@
         </button>
     </div>
 
-    <!-- New Arrivals Section -->
-    <section class="product-section pt-12">
+    <section class="product-section pt-4">
         <div class="container">
-            <h2 class="section-title">NEW ARRIVALS</h2>
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=T-shirt"
-                            alt="T-shirt with Tape Details">
-                    </div>
-                    <div class="product-info">
-                        <h3>T-shirt with Tape Details</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <span class="rating-score">4.5/5</span>
-                        </div>
-                        <div class="price">$120</div>
-                    </div>
-                </article>
+            <h2 class="section-title mb-6">Search</h2>
 
-                <!-- Product 2 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=Jeans" alt="Skinny Fit Jeans">
-                    </div>
-                    <div class="product-info">
-                        <h3>Skinny Fit Jeans</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <span class="rating-score">3.5/5</span>
+            <!-- Search Controls -->
+            <div class="mb-8">
+                <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-6">
+                    <!-- Live Search Input -->
+                    <div class="relative w-full md:w-96">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
                         </div>
-                        <div class="price">
-                            $240 <span class="original-price">$260</span> <span class="discount-badge">-20%</span>
-                        </div>
+                        <input type="text" id="live-search-input"
+                            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Search products..." />
                     </div>
-                </article>
 
-                <!-- Product 3 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=Shirt" alt="Checkered Shirt">
+                    <!-- Category Buttons -->
+                    <div id="category-filters" class="flex flex-wrap gap-2 justify-center md:justify-end">
+                        <button
+                            class="category-btn px-4 py-2 text-sm font-medium text-white bg-black rounded-full hover:bg-gray-800 transition-colors"
+                            data-category="all">All</button>
+                        <!-- Categories will be injected here -->
                     </div>
-                    <div class="product-info">
-                        <h3>Checkered Shirt</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <span class="rating-score">4.5/5</span>
-                        </div>
-                        <div class="price">$180</div>
-                    </div>
-                </article>
-
-                <!-- Product 4 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=T-shirt" alt="Sleeve Striped T-shirt">
-                    </div>
-                    <div class="product-info">
-                        <h3>Sleeve Striped T-shirt</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <span class="rating-score">4.5/5</span>
-                        </div>
-                        <div class="price">
-                            $130 <span class="original-price">$160</span> <span class="discount-badge">-30%</span>
-                        </div>
-                    </div>
-                </article>
+                </div>
             </div>
-            <div class="view-all-container">
-                <a href="#" class="btn-secondary">View All</a>
+
+            <!-- Product Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Products will be injected here -->
+                <div class="col-span-full text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+                    <p class="mt-2 text-gray-600">Loading products...</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Top Selling Section -->
-    <section class="product-section pt-12">
-        <div class="container">
-            <h2 class="section-title">TOP SELLING</h2>
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=Shirt" alt="Vertical Striped Shirt">
-                    </div>
-                    <div class="product-info">
-                        <h3>Vertical Striped Shirt</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <span class="rating-score">5.0/5</span>
-                        </div>
-                        <div class="price">
-                            $212 <span class="original-price">$232</span> <span class="discount-badge">-20%</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Product 2 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=T-shirt"
-                            alt="Courage Graphic T-shirt">
-                    </div>
-                    <div class="product-info">
-                        <h3>Courage Graphic T-shirt</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <span class="rating-score">4.0/5</span>
-                        </div>
-                        <div class="price">$145</div>
-                    </div>
-                </article>
-
-                <!-- Product 3 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=Shorts"
-                            alt="Loose Fit Bermuda Shorts">
-                    </div>
-                    <div class="product-info">
-                        <h3>Loose Fit Bermuda Shorts</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <span class="rating-score">3.0/5</span>
-                        </div>
-                        <div class="price">$80</div>
-                    </div>
-                </article>
-
-                <!-- Product 4 -->
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="https://placehold.co/300x300/F0EEED/000000?text=Jeans" alt="Faded Skinny Jeans">
-                    </div>
-                    <div class="product-info">
-                        <h3>Faded Skinny Jeans</h3>
-                        <div class="rating">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                            </div>
-                            <span class="rating-score">4.5/5</span>
-                        </div>
-                        <div class="price">$210</div>
-                    </div>
-                </article>
-            </div>
-            <div class="view-all-container">
-                <a href="#" class="btn-secondary">View All</a>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -322,7 +177,8 @@
                 <!-- Brand Column -->
                 <div class="footer-brand">
                     <div class="logo">SHOP.CO</div>
-                    <p>We have clothes that suits your style and which you're proud to wear. From women to men.</p>
+                    <p>We have clothes that suits your style and which you're proud to wear. From women to men.
+                    </p>
                     <div class="social-icons">
                         <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
                         <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -379,23 +235,13 @@
                 </div>
             </div>
 
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p>Shop.co © 2000-2023, All Rights Reserved</p>
-                <div class="payment-methods">
-                    <img src="https://placehold.co/50x32/F0F0F0/666666?text=Visa" alt="Visa">
-                    <img src="https://placehold.co/50x32/F0F0F0/666666?text=MC" alt="Mastercard">
-                    <img src="https://placehold.co/50x32/F0F0F0/666666?text=PayPal" alt="PayPal">
-                    <img src="https://placehold.co/50x32/F0F0F0/666666?text=Pay" alt="Apple Pay">
-                    <img src="https://placehold.co/50x32/F0F0F0/666666?text=GPay" alt="Google Pay">
-                </div>
-            </div>
-        </div>
     </footer>
+
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>
