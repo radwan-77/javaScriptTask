@@ -7,7 +7,6 @@ const productsGrid = document.getElementById('products-grid');
 const searchInput = document.getElementById('live-search-input');
 const categoryFiltersContainer = document.getElementById('category-filters');
 
-// Fetch products from FakeStore API
 async function fetchProducts() {
     try {
         const response = await fetch('https://fakestoreapi.com/products');
@@ -17,17 +16,10 @@ async function fetchProducts() {
         renderProducts(allProducts);
     } catch (error) {
         console.error('Error fetching products:', error);
-        if (productsGrid) {
-            productsGrid.innerHTML = `
-                <div class="col-span-full text-center py-12">
-                    <p class="text-red-500">Failed to load products. Please try again later.</p>
-                </div>
-            `;
-        }
+        
     }
 }
 
-// Fetch categories
 async function fetchCategories() {
     try {
         const response = await fetch('https://fakestoreapi.com/products/categories');
@@ -44,7 +36,6 @@ async function fetchCategories() {
 function renderCategoryButtons(categories) {
     if (!categoryFiltersContainer) return;
 
-    // Create buttons for each category
     categories.forEach(category => {
         const btn = document.createElement('button');
         btn.className = 'category-btn px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors capitalize';
@@ -57,7 +48,6 @@ function renderCategoryButtons(categories) {
     const buttons = categoryFiltersContainer.querySelectorAll('.category-btn');
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active state
             buttons.forEach(b => {
                 b.classList.remove('bg-black', 'text-white');
                 b.classList.add('bg-gray-100', 'text-gray-700');
@@ -65,14 +55,13 @@ function renderCategoryButtons(categories) {
             btn.classList.remove('bg-gray-100', 'text-gray-700');
             btn.classList.add('bg-black', 'text-white');
 
-            // Filter products
             activeCategory = btn.dataset.category;
             filterProducts();
         });
     });
 }
 
-// Filter products based on search and category
+// Filter products 
 function filterProducts() {
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
@@ -98,12 +87,21 @@ function renderProducts(products) {
             </div>
         `;
         return;
-    }
+    }  
+// to display the product
+// .map() goes through each product in the array.
 
+// For each product, it calls createProductCard(product) which returns a block of HTML representing the product card.
+
+// .join('') combines all returned HTML strings into one big string.
+
+// That HTML is then placed into productsGrid.innerHTML, meaning:
+
+// Every product card is displayed in the UI.
     productsGrid.innerHTML = products.map(product => createProductCard(product)).join('');
 }
 
-// Create product card HTML (Premium Design)
+// Create product card HTML template رسم 
 function createProductCard(product) {
     const rating = product.rating?.rate || 4.0;
     const fullStars = Math.floor(rating);
@@ -126,7 +124,7 @@ function createProductCard(product) {
                 <p class="text-sm text-gray-500 capitalize mb-4">${product.category}</p>
                 <div class="mt-auto flex items-center justify-between">
                     <span class="text-2xl font-extrabold text-heading">$${product.price.toFixed(2)}</span>
-                    <button type="button" class="inline-flex items-center text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 focus:outline-none transition-colors" onclick="event.stopPropagation(); alert('Added to cart!');">
+                    <button type="button" class="inline-flex items-center text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 focus:outline-none transition-colors" onclick="event.stopPropagation();">
                         <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8 2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
                         </svg>
@@ -137,53 +135,6 @@ function createProductCard(product) {
         </div>
     `;
 }
-
-// Open Product Modal
-function openProductModal(productId) {
-    const product = allProducts.find(p => p.id === productId);
-    if (!product) return;
-
-    // Populate modal content
-    const modalTitle = document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-description');
-    const modalPrice = document.getElementById('modal-price');
-    const modalImage = document.getElementById('modal-image');
-    const modalRating = document.getElementById('modal-rating');
-
-    if (modalTitle) modalTitle.textContent = product.title;
-    if (modalDesc) modalDesc.textContent = product.description;
-    if (modalPrice) modalPrice.textContent = `$${product.price.toFixed(2)}`;
-    if (modalImage) modalImage.src = product.image;
-    if (modalRating) {
-        modalRating.innerHTML = `
-            <div class="flex items-center space-x-1 rtl:space-x-reverse text-yellow-400">
-                ${generateStars(Math.floor(product.rating.rate))}
-            </div>
-            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ms-3">${product.rating.rate}/5</span>
-        `;
-    }
-
-    // Show modal
-    const modal = document.getElementById('default-modal');
-    if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        modal.setAttribute('aria-modal', 'true');
-        modal.setAttribute('role', 'dialog');
-
-        // Ensure close buttons work
-        const closeButtons = modal.querySelectorAll('[data-modal-hide]');
-        closeButtons.forEach(btn => {
-            btn.onclick = () => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                modal.removeAttribute('aria-modal');
-                modal.removeAttribute('role');
-            };
-        });
-    }
-}
-
 // Generate star icons
 function generateStars(fullStars) {
     let stars = '';

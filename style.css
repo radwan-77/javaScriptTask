@@ -14,11 +14,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: var(--font-main);
-    color: var(--text-color);
-    line-height: 1.5;
-}
 
 .container {
     max-width: 1240px;
@@ -82,9 +77,7 @@ ul {
     color: var(--text-muted);
 }
 
-.search-bar i {
-    color: var(--text-muted);
-}
+
 
 .nav-icons {
     display: flex;
